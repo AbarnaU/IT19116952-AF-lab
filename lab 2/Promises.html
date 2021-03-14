@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        // function getValue(callback){
+        //     let value = 0;
+        //     setTimeout(function (){
+        //         value = 10;
+        //         callback(value);       //this is the anonymous function in line 24
+        //     },1000);
+        // }
+        //
+        // function getNewValue(value, callback){
+        //     setTimeout(function (){
+        //         callback(value+100);           //this is the anonymous function in line 25
+        //     },1000);
+        // }
+        //
+        // //calling the function in line 9
+        // getValue(function (value){
+        //     getNewValue(value, function (newValue){       //this is the anonymous function in line 18
+        //         console.log(newValue);
+        //     })
+        // });
+
+        function getValue() {
+            let value = 0;
+            // resolve is for success
+            // reject is for error
+            return new Promise((resolve, reject) => {
+                setTimeout(function () {
+                    value = 10;
+                    resolve(value);
+                }  , 1000);
+            }  );
+        }
+        function getNewValue(value) {
+            return new Promise((resolve, reject) => {
+                setTimeout(function () {
+                    resolve(value * 100);
+                }  , 1000);
+            }  );
+        }
+        function setValue(value) {
+            return value + 1999;
+        }
+        async function print() {
+            let value = await getValue();
+            value = await getNewValue(value);
+            return value;
+        }
+        print().then(value => setValue(value))
+            .then(value => console.log(value));
+        const persons = {
+            organization: 'Science',
+            people: ['John', 'Jane'],
+            print: function () {
+                this.people.forEach(value => {
+                    console.log(value, this.organization);
+                }  );
+            }
+        }  ;
+        persons.print();
+        // //Calling the function defined at line number 11 //
+        // getValue().then(function (value) {
+        //      return getNewValue(value);
+        // }).then(function (value) {
+        //      return setValue(value);
+        // }).then(function (value) {
+        // console.log(value);
+        // });
+</script>
+</body>
+</html>

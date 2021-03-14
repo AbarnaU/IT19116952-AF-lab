@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        class Vehicle{
+            static VehicleCount;
+            constructor(type) {
+                this.type=type;
+                Vehicle.VehicleCount++;
+            }
+        }
+
+        Vehicle.prototype.print=function (){
+            console.log("Vehicle is driving");
+        }
+        const car1 = new Vehicle('Tata');
+        car1.print();
+
+        const obj = new Vehicle("Toyota");
+
+        class Car extends Vehicle{
+
+        }
+
+        Car.prototype =Object.create(Vehicle.prototype);
+        Car.prototype.constructor = Car;
+
+        function balanceWheels(){
+            console.log("Wheels are balanced");
+        }
+        balanceWheels();
+
+    </script>
+</body>
+</html>
