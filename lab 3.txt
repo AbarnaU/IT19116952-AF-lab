@@ -1,0 +1,22 @@
+3. db.Student.insert({"name": "John","dateOfBirth": "1990-01-01T00:00:00Z","subjects": ["Application frameworks", "Computerarchitecture"]})
+
+4. db.getCollection('Student').find({"name" : "John"})
+
+5. db.getCollection('Student').find({_id:ObjectId("604b476e01cf104dd91a3f87")})
+
+6. db.Student.update(
+   { _id: ObjectId("604b476e01cf104dd91a3f87")},
+   { $push: { "subjects": "Distributed Computing" } })
+
+7. db.Student.insert({"name":"Smith","dateOfBirth": "1990-01-15T00:00:00Z","subjects": ["Application frameworks", "Computerarchitecture"],"isActive":true}
+   db.Student.insert({"name":"Jane","dateOfBirth": "1990-02-15T00:00:00Z","subjects": ["Application frameworks", "Computerarchitecture"],"isActive":false})
+
+7. db.getCollection('Student').find({"name":"Smith"},{"isActive":true},{ $push: { "subjects": "Distributed Computing" }})
+
+8. db.Student.update(
+{_id : ObjectId("604b50b201cf104dd91a3f89")},
+{$set: { "isActive" : false}});
+
+9. db.Student.remove({_id:ObjectId("604b476e01cf104dd91a3f87")})
+                  or
+   db.Student.remove({"name":"Smith","dateOfBirth": "1990-01-15T00:00:00Z","subjects": ["Application frameworks", "Computerarchitecture"],"isActive":false})
