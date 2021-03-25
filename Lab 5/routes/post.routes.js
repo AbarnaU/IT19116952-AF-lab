@@ -1,7 +1,7 @@
 //17
 const Router = require("@koa/router");
 
-const {createPost, getPost, getPosts} = require('..api/posts.api');
+const {createPost, getPost, getPosts} = require('../api/posts.api');
 
 const router = new Router({
     prefix: '/posts'
